@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <title>Average Response Data</title>
+</head>
+
+<body>
+<h1>Average Response Data</h1>
+
+<table>
+    <tr>
+        <th>Average last 10 seconds</th>
+        <th>Average last minute</th>
+        <th>Average last hour</th>
+    </tr>
+    <tr>
+        <td th:text ="${averageIn10Seconds}">1</td>
+        <td th:text ="${averageIn1Minute}">2</td>
+        <td th:text ="${averageIn1Hour}">3</td>
+    </tr>
+</table>
+
+</body>
+</html>
