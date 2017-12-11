@@ -38,15 +38,6 @@ public class HealthMonitorResponseDataCalculatorImpl implements HealthMonitorRes
 
     private long getIntervalStart(AverageTypeInterval averageTypeInterval) {
         final long now = System.currentTimeMillis();
-        switch (averageTypeInterval) {
-            case SECONDS_10:
-                return now - AverageTypeInterval.SECONDS_10.getTimeInMillis();
-            case MINUTE:
-                return now - AverageTypeInterval.MINUTE.getTimeInMillis();
-            case HOUR:
-                return now - AverageTypeInterval.HOUR.getTimeInMillis();
-            default:
-                throw new IllegalArgumentException("AverageTypeInterval is not implemented.");
-        }
+        return now - averageTypeInterval.getTimeInMillis();
     }
 }
