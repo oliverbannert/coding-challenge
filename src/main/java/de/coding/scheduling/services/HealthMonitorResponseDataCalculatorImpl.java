@@ -22,15 +22,12 @@ public class HealthMonitorResponseDataCalculatorImpl implements HealthMonitorRes
     @Override
     public long calculateAverage(AverageTypeInterval averageTypeInterval) {
         List<Long> responseTimes = collectResponseTimesForInterval(averageTypeInterval);
-
         long sum = responseTimes.stream().mapToLong(Long::longValue).sum();
-
         return sum / responseTimes.size();
     }
 
     protected List<Long> collectResponseTimesForInterval(AverageTypeInterval averageTypeInterval) {
         final long intervalStart = getIntervalStart(averageTypeInterval);
-
         return monitorResponseDataRepository.findAll().stream()
                 .filter(m -> m.getCreated().after(new Date(intervalStart)))
                 .map(MonitorResponseDataEntity::getResponseTimeInMillis).collect(Collectors.toList());
