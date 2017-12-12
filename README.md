@@ -10,4 +10,4 @@
 - implemented controller and view for displaying the average times
 
 4.)
-- implemented restcontroller to get the HealthMonitorPing data as json 
+- implemented restcontroller to get the HealthMonitorPing datas and single data as json 
